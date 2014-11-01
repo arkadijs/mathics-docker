@@ -9,8 +9,8 @@ RUN apt-get update \
     && sed -ri -e "s/('django)>=/\\1==/" setup.py \
     && python setup.py install \
     && groupadd -r mathics \
-    && useradd -r -m -g mathics mathics
-RUN su - mathics -c 'cd /tmp/Mathics-master && python setup.py initialize'
-RUN rm -rf /tmp/master.zip /tmp/Mathics-master /var/cache/apt/* /var/lib/apt/lists/*
+    && useradd -r -m -g mathics mathics \
+    && su - mathics -c 'cd /tmp/Mathics-master && python setup.py initialize' \
+    && rm -rf /tmp/master.zip /tmp/Mathics-master /var/cache/apt/* /var/lib/apt/lists/*
 EXPOSE 8000
 CMD [ "su", "-", "mathics", "-c", "exec mathicsserver --external"]
