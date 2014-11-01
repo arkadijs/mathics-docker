@@ -1,12 +1,12 @@
 ### Mathics in Docker container
 
-While [Wolfram Alpha] is great when I have no full Mathematica nearby, it is a little bit slow and too glorious. Python or [Mathics] come to rescue! Too bad [mathics.net] is abysmally slow. So the choice is to run Mathics withing Docker (on private [Deis]).
+While [Wolfram Alpha] is great when I have no full Mathematica nearby, it is a little bit slow and too glorious. Python or [Mathics] come to rescue! Unfortunately, [mathics.net] is abysmally sluggish. So the choice is to run Mathics within Docker (on private [Deis]).
 
 Run it locally with:
 
     docker run --rm -ti -p 8000:8000 arkadi/mathics
 
-Open http://localhost:8000/
+Open [localhost:8000](http://localhost:8000/).
 
 Run it on Deis:
 
@@ -22,7 +22,7 @@ Or build your own:
     deis create mathics
     deis pull $DEV_REGISTRY/arkadi/mathics
 
-...build directly on Deis:
+Or build directly on Deis:
 
     deis create mathics
     git push deis master
